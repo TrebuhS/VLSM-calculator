@@ -23,7 +23,12 @@ const getSubnetAddress = function() {
         }
     }
 
+    let splitString;
+
     for (let i = 0; i < subnetAddress.length; i++) {
+        splitString = subnetAddress[i].split("");
+        splitString = splitString.reverse();
+        splitString = splitString.join("");
         subnetAddress[i] = parseInt(subnetAddress[i], 2);
     }
 
@@ -132,7 +137,6 @@ const changeMaximumAddresses = function() {
 
 ipAddress.addEventListener("change", function() {
     changeVlsmRange();
-    console.log(this);
 });
 
 maskBits.addEventListener("change", function() {
